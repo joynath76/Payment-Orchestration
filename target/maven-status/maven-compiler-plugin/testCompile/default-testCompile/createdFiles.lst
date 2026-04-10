@@ -1,0 +1,3 @@
+com\example\payment\idempotency\IdempotencyServiceTest.class
+com\example\payment\controller\PaymentIntegrationTest.class
+com\example\payment\service\PaymentServiceTest.class

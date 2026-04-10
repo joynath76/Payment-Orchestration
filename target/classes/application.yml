@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: payment-orchestration
+  datasource:
+    url: jdbc:h2:mem:paymentdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+app:
+  idempotency:
+    ttl-minutes: 60
+
+resilience4j:
+  retry:
+    instances:
+      paymentRetry:
+        maxAttempts: 3
+        waitDuration: 2s
+        retryExceptions:
+          - java.lang.RuntimeException
+          - java.io.IOException
+        ignoreExceptions:
+          - com.example.payment.service.PaymentProcessingException
+
+logging:
+  level:
+    com.example.payment: DEBUG
