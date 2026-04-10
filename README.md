@@ -27,7 +27,7 @@ A robust Spring Boot-based payment orchestration service that provides intellige
                     │   Routing Engine    │
                     │                     │
                     │ • Provider Selection│
-                    │ • Load Balancing    │
+                    │                     │
                     └─────────────────────┘
 ```
 
